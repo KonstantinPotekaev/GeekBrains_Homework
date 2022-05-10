@@ -10,10 +10,7 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            int[] m = { 1, 2, 3 };
-            for (int i = 0; i < m.Length; i++) {
-                Console.WriteLine(m[i]);
-            }
+            
         }
     }
 }
