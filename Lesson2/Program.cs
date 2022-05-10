@@ -10,6 +10,9 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
+            int[] m = { 1, 2, 3 };
+            Console.WriteLine(m);
+
         }
     }
 }
