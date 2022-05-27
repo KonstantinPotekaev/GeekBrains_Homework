@@ -58,16 +58,37 @@ namespace Lesson4
             Console.WriteLine(sum);
 
         }
+
         static void task3()
         {
-
+            Console.Write("Введите номер месяца от 1 до 12");
+            byte n = byte.Parse(Console.ReadLine());
+            while(n < 0 || n > 12)
+            {
+                Console.Write("Введите номер месяца от 1 до 12");
+                n = Console.ReadLine();
+            }
+           
+            Season ans = n & Season.winter;
+            Console.WriteLine(ans)
+            //Хотел сделать с бит масками, но не понимаю, как...
         }
+
+        public enum Season
+        {
+            winter = 0b_1,0b_10,0b_1100,
+            spring = 0b_11,0b_100,0b_101,
+            summer = 0b_110,0b_111,0b_1000,
+            autumn = 0b_1001,0b_1010,0b_1011
+        }
+
         static void task4()
         {
             Console.Write("Введите значение:");
             long n = long.Parse(Console.ReadLine());
             Console.WriteLine(f(n));
         }
+
         static long f(long n)
         {
             if (n == 0)
