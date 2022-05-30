@@ -25,10 +25,10 @@ namespace Lesson5
                 case 3:
                     task3();
                     break;
-                /*case 4:
+                case 4:
                     task4();
                     break;
-                case 5;
+                /*case 5;
                     task5();
                     break;*/
             }
@@ -57,6 +57,28 @@ namespace Lesson5
             Console.WriteLine($"Список чисел сохранен в файл {filename} \nпуть к файлу: {Path.GetFullPath(filename)}");
         }
 
+        static void task4()
+        {
+            Console.Write("Введите путь: ");
+            string s = Console.ReadLine();
+            PrintDir(new DirectoryInfo(@s), "", true);
+        }
 
+        static void PrintDir(DirectoryInfo dir, string indent, bool lastdir)
+        {
+            string filename = "task4.txt", DirName = dir.Name;
+            string k = (lastdir ? "└─" : "├");
+            string s = indent + k;
+            File.AppendAllText(filename, s);
+            indent += lastdir ? " " : "│ ";
+            File.AppendAllText(filename, DirName + '\n');
+
+            DirectoryInfo[] subdirs = dir.GetDirectories();
+
+            for (int i = 0; i < subdirs.Length; i++)
+            {
+                PrintDir(subdirs[i], indent, i == subdirs.Length - 1);
+            }
+        }
     }
 }
